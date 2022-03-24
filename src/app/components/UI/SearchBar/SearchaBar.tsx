@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 
 import { colors } from "../../../assets/colors/colors";
+import { SearchContext } from "context/searchContext";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   border: `1px solid ${colors.greyLight2}`,
@@ -17,7 +18,8 @@ const Search = styled("div")(({ theme }) => ({
   width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
-    width: "20%",
+    marginRight: theme.spacing(2),
+    width: "30%",
   },
 }));
 
@@ -43,14 +45,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export const SearchaBar = () => {
+  const { searchBarValue, handleSearchBarChange } = useContext(SearchContext);
+
   return (
-    <Search>
+    <Search sx={{ margin: { xs: "20px 0" } }}>
       <SearchIconWrapper>
         <SearchIcon />
       </SearchIconWrapper>
       <StyledInputBase
         placeholder="Search"
         inputProps={{ "aria-label": "search" }}
+        value={searchBarValue}
+        onChange={(e) => handleSearchBarChange(e)}
       />
     </Search>
   );

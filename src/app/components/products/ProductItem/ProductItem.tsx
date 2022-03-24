@@ -28,14 +28,14 @@ export const ProductItem = ({ item }: ProcductItemProps) => {
         position: "relative",
       }}
     >
-      {item.promo && !item.active && <Promo />}
-      <CardActionArea disabled={item.active}>
+      {item.promo && item.active && <Promo />}
+      <CardActionArea disabled={!item.active}>
         <CardMedia
           component="img"
           height={180}
           image={item.image}
           alt="product image"
-          sx={{ filter: `${item.active && "grayscale(100%)"}` }}
+          sx={{ filter: `${!item.active && "grayscale(100%)"}` }}
         />
       </CardActionArea>
       <CardContent sx={{ paddingTop: "5px", paddingBottom: "5px" }}>
@@ -52,15 +52,15 @@ export const ProductItem = ({ item }: ProcductItemProps) => {
       <CardActions>
         <Button
           style={{
-            backgroundColor: item.active ? colors.grey : colors.blue,
+            backgroundColor: item.active ? colors.blue : colors.grey,
             fontSize: "14px",
             color: "white",
           }}
           variant="contained"
           fullWidth={true}
-          disabled={item.active}
+          disabled={!item.active}
         >
-          {item.active ? "Unavailable" : "Show details"}
+          {item.active ? "Show details" : "Unavailable"}
         </Button>
       </CardActions>
     </Card>

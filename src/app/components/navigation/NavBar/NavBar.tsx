@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { AppRoute } from "../../../../routing/AppRoute.enum";
 
 import { SearchaBar } from "../../UI/SearchBar/SearchaBar";
+import { CheckBox } from "app/components/UI/CheckBox/CheckBox";
+
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
@@ -19,13 +21,15 @@ import avatar from "../../../assets/icons/Oval.svg";
 
 export const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
   const [isUserLogged, setIsUserLogged] = useState<boolean>(true);
 
   const theme = useTheme();
-  const matches = useMediaQuery(() => theme.breakpoints.up("sm"));
+  const matches = useMediaQuery(() => theme.breakpoints.up("md"));
 
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+
+  const handleOpenToolTip = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -36,16 +40,16 @@ export const NavBar = () => {
     <>
       <Box
         width={1}
-        padding={{ xs: "20px", xl: "0 108px" }}
+        padding={{ xs: "0 20px", xl: "0 108px" }}
         mb={{ xs: "20px", xl: "0 " }}
         position={{ xs: "fixed", xl: "static" }}
         flexWrap={"wrap"}
         zIndex={100}
         sx={{
-          height: "140px",
+          height: { xs: "228px", md: "140px" },
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: { xs: "space-between", xl: "space-around" },
           textAlign: "center",
           backgroundColor: colors.white,
         }}
@@ -53,12 +57,22 @@ export const NavBar = () => {
         <Typography fontSize={24} sx={{ minWidth: 100 }}>
           join.tsh.io
         </Typography>
-        {matches && <SearchaBar />}
+        {matches && (
+          <Box
+            width={{ xs: "70%", md: "85" }}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <SearchaBar />
+            <CheckBox />
+          </Box>
+        )}
         <Box justifySelf={"flex-end"}>
           {isUserLogged ? (
             <Tooltip title="">
               <IconButton
-                onClick={handleClick}
+                onClick={handleOpenToolTip}
                 size="small"
                 sx={{ ml: 2 }}
                 aria-controls={open ? "account-menu" : undefined}
@@ -94,7 +108,18 @@ export const NavBar = () => {
             </Button>
           )}
         </Box>
-        {!matches && <SearchaBar />}
+        {!matches && (
+          <Box
+            width="100%"
+            display="flex"
+            flexWrap="wrap"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <SearchaBar />
+            <CheckBox />
+          </Box>
+        )}
       </Box>
       <Menu
         anchorEl={anchorEl}

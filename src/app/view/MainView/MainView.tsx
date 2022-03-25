@@ -89,6 +89,8 @@ export const MainView = () => {
       if (data) {
         if (data.items.length > 0 && data.meta) {
           console.log(data.items);
+          console.log(data.meta);
+
           setFechtedProducts(data.items);
           setFetchedPaginationInfo(data.meta);
           setIsLoading(false);
@@ -132,7 +134,7 @@ export const MainView = () => {
       >
         <NavBar />
         <Box
-          pt={{ xs: "260px", xl: "0px" }}
+          pt={{ xs: "260px", md: "160px", xl: "10px" }}
           minHeight={"calc(100vh - 140px)"}
           position="relative"
           sx={{
@@ -143,14 +145,16 @@ export const MainView = () => {
           }}
         >
           {isLoading && <CircularProgress />}
-          {fechtedProducts && !isLoading ? (
+          {fechtedProducts && !isLoading && (
             <Products products={fechtedProducts} />
-          ) : (
-            <EmptyCard />
           )}
+
+          {!fechtedProducts && <EmptyCard />}
+
           {fetchedPaginationInfo && fechtedProducts && (
             <PaginationComponent
               count={fetchedPaginationInfo?.totalItems}
+              currentPage={currentPage}
               handlePageChange={handlePageChange}
             />
           )}

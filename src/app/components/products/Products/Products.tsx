@@ -14,8 +14,8 @@ export const Products = ({ products }: { products: Product[] }) => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      rowSpacing={5}
-      columnSpacing={{ xs: 5, xl: 11 }}
+      rowSpacing={{ xs: 5, xl: 3 }}
+      columnSpacing={{ xs: 4, md: 6, xl: 11 }}
     >
       {products ? (
         products.map((el, index) => (

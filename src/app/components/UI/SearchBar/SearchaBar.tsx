@@ -15,11 +15,15 @@ const Search = styled("div")(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("xs")]: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(2),
-    width: "30%",
+    width: "100%",
+  },
+  [theme.breakpoints.up("md")]: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(2),
+    width: "40%",
   },
 }));
 

@@ -52,7 +52,7 @@ export const ProductItem = ({ item }: ProcductItemProps) => {
       <CardActions>
         <Button
           style={{
-            backgroundColor: item.active ? colors.blue : colors.grey,
+            backgroundColor: item.active ? colors.blueLight : colors.grey,
             fontSize: "14px",
             color: "white",
           }}

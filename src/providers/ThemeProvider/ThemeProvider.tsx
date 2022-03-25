@@ -1,7 +1,9 @@
+import { ThemeProvider } from "@mui/material/styles";
+
 import { createTheme } from "@mui/material/styles";
 import { colors } from "../../app/assets/colors/colors";
 
-const theme = createTheme({
+let theme = createTheme({
   typography: {
     fontFamily: "Nunito",
     button: {
@@ -11,15 +13,6 @@ const theme = createTheme({
   palette: {
     background: {
       default: colors.greyLight,
-    },
-  },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1536,
     },
   },
 });

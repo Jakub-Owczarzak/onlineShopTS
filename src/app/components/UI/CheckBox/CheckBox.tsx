@@ -12,9 +12,10 @@ export const CheckBox = () => {
   return (
     <FormGroup
       sx={{
-        width: { xs: "100%", md: "35%", xl: "25%" },
+        width: { xs: "100%", md: "60%" },
         display: "flex",
         flexDirection: "row",
+        paddingLeft: { xs: "0", md: "20px" },
       }}
     >
       <FormControlLabel

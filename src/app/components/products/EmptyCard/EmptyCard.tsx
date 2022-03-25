@@ -9,9 +9,9 @@ import Icon from "../../../assets/icons/shape.svg";
 export const EmptyCard = () => {
   return (
     <Box
-      width={{ xs: "360px", xl: "600px" }}
+      width={{ xs: "320px", xl: "600px" }}
       position={"absolute"}
-      top={{ xs: "160px", xl: "58px" }}
+      top={{ xs: "250px", md: "160px", xl: "30px" }}
     >
       <Paper
         sx={{
@@ -33,7 +33,7 @@ export const EmptyCard = () => {
           Ooops… It’s empty here
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          There are no products on the list{" "}
+          There are no products on the list
         </Typography>
       </Paper>
     </Box>

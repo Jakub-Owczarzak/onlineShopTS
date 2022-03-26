@@ -1,11 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { Login } from "app/components/Login/Login";
-import { Products } from "app/components/products/Products/Products";
-
 import { AppRoute } from "./AppRoute.enum";
 import { MainView } from "app/view/MainView/MainView";
+import { Login } from "app/components/Login/Login";
 
 export const AppRoutes = () => {
   return (

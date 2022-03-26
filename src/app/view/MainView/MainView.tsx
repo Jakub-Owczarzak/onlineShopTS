@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, memo } from "react";
 
-import { Products } from "app/components/products/Products/Products";
+import { ProductList } from "app/components/products/ProductsList/ProductList";
 import { Product } from "../../components/products/Products.interface";
 import { NavBar } from "app/components/navigation/NavBar/NavBar";
 import { Box, CircularProgress } from "@mui/material";
@@ -146,16 +146,17 @@ export const MainView = () => {
         >
           {isLoading && <CircularProgress />}
           {fechtedProducts && !isLoading && (
-            <Products products={fechtedProducts} />
+            <ProductList products={fechtedProducts} />
           )}
 
-          {!fechtedProducts && <EmptyCard />}
+          {!fechtedProducts && !isLoading && <EmptyCard />}
 
           {fetchedPaginationInfo && fechtedProducts && (
             <PaginationComponent
-              count={fetchedPaginationInfo?.totalItems}
+              itemsCount={fetchedPaginationInfo.totalItems}
               currentPage={currentPage}
               handlePageChange={handlePageChange}
+              itemsPerPage={8}
             />
           )}
         </Box>

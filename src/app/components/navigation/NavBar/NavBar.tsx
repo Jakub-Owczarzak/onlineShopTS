@@ -22,7 +22,7 @@ import avatar from "../../../assets/icons/Oval.svg";
 export const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const [isUserLogged, setIsUserLogged] = useState<boolean>(true);
+  const [isUserLogged, setIsUserLogged] = useState<boolean>(false);
 
   const theme = useTheme();
   const matches = useMediaQuery(() => theme.breakpoints.up("md"));
@@ -40,7 +40,7 @@ export const NavBar = () => {
     <>
       <Box
         width={1}
-        padding={{ xs: "0 20px", xl: "0 108px" }}
+        padding={{ xs: "0 20px", md: "0 108px", xl: "0 225px" }}
         mb={{ xs: "20px", xl: "0 " }}
         position={{ xs: "fixed", xl: "static" }}
         flexWrap={"wrap"}
@@ -49,7 +49,11 @@ export const NavBar = () => {
           height: { xs: "228px", md: "140px" },
           display: "flex",
           alignItems: "center",
-          justifyContent: { xs: "space-between", xl: "space-around" },
+          justifyContent: {
+            xs: "space-between",
+            md: "space-around",
+            xl: "space-between",
+          },
           textAlign: "center",
           backgroundColor: colors.white,
         }}

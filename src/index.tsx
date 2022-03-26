@@ -8,7 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "providers/ThemeProvider/ThemeProvider";
+import theme from "providers/ThemeProvider/StyleTheme";
 
 ReactDOM.render(
   <AppProviders>

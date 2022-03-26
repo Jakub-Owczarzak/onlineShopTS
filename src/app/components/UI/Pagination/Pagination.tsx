@@ -5,17 +5,19 @@ import PaginationItem from "@mui/material/PaginationItem";
 import Stack from "@mui/material/Stack";
 
 interface PaginationComponentProps {
-  count: number;
+  itemsCount: number;
   currentPage: number;
+  itemsPerPage: number;
   handlePageChange: (event: React.ChangeEvent<unknown>, value: number) => void;
 }
 
 export const PaginationComponent = ({
-  count,
+  itemsCount,
   currentPage,
+  itemsPerPage,
   handlePageChange,
 }: PaginationComponentProps) => {
-  const pageCount = Math.ceil(count / 8);
+  const pageCount = Math.ceil(itemsCount / itemsPerPage);
 
   return (
     <>

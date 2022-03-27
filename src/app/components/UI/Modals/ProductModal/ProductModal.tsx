@@ -3,9 +3,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { Product } from "app/components/products/Products.interface";
+import { Product } from "models/products.interface";
 import { ProductItem } from "app/components/products/ProductItem/ProductItem";
-import { CloseButton } from "../Buttons/CloseButton";
+import { CloseButton } from "../../Buttons/CloseButton";
 
 interface ProducModalProps<T> {
   handleModalClose: () => void;
@@ -35,7 +35,7 @@ export const ProductModal = ({
   dataToDisplay,
   handleModalClose,
 }: ProducModalProps<Product>) => {
-  console.log("DATA", dataToDisplay);
+ 
   return (
     <div>
       <Modal

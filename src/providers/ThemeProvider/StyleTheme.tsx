@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { colors } from "../../app/assets/colors/colors";
+import { colors } from "app/assets/colors/colors";
 
 let theme = createTheme({
   typography: {

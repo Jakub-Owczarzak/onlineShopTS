@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, memo } from "react";
 
 import { ProductList } from "app/components/products/ProductsList/ProductList";
-import { Product } from "../../components/products/Products.interface";
+import { Product } from "../../../models/products.interface";
 import { NavBar } from "app/components/navigation/NavBar/NavBar";
 import { Box, CircularProgress } from "@mui/material";
 import { EmptyCard } from "app/components/products/EmptyCard/EmptyCard";
@@ -54,7 +54,7 @@ export const MainView = () => {
   const handleSearchBarChange = (
     e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    console.log(e.currentTarget.value);
+   
     setCurrentPage(1);
     setSearchBarProduct(e.currentTarget.value);
   };
@@ -63,8 +63,7 @@ export const MainView = () => {
     event: React.ChangeEvent<unknown>,
     value: number
   ) => {
-    console.log(value);
-    console.log(fechtedProducts);
+ 
     setCurrentPage(value);
   };
 
@@ -88,8 +87,7 @@ export const MainView = () => {
       const data = await response.json();
       if (data) {
         if (data.items.length > 0 && data.meta) {
-          console.log(data.items);
-          console.log(data.meta);
+      
 
           setFechtedProducts(data.items);
           setFetchedPaginationInfo(data.meta);
@@ -102,7 +100,7 @@ export const MainView = () => {
         throw new Error("No matches");
       }
     } catch (error) {
-      console.log(error);
+    
       setIsLoading(false);
     }
   };
@@ -151,7 +149,7 @@ export const MainView = () => {
 
           {!fechtedProducts && !isLoading && <EmptyCard />}
 
-          {fetchedPaginationInfo && fechtedProducts && (
+          {fetchedPaginationInfo && fechtedProducts && !isLoading && (
             <PaginationComponent
               itemsCount={fetchedPaginationInfo.totalItems}
               currentPage={currentPage}

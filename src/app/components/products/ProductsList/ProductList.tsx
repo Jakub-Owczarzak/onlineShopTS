@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import { ProductItem } from "../ProductItem/ProductItem";
 import { EmptyCard } from "../EmptyCard/EmptyCard";
-import { Product } from "../Products.interface";
-import { ProductModal } from "../../UI/ProductModal/ProductModal";
+import { Product } from "../../../../models/products.interface";
+import { ProductModal } from "../../UI/Modals/ProductModal/ProductModal";
 
 import Grid from "@mui/material/Grid";
 import { isTemplateLiteralTypeNode } from "typescript";

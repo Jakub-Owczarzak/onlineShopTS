@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Product } from "../Products.interface";
+import { Product } from "../../../../models/products.interface";
 import { colors } from "../../../assets/colors/colors";
 
 import { RatingComponent } from "../../RatingComponent/RatingComponent";

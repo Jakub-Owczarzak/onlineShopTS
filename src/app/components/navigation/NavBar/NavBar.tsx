@@ -17,12 +17,18 @@ import Tooltip from "@mui/material/Tooltip";
 import { Button } from "@mui/material";
 
 import { colors } from "../../../assets/colors/colors";
-import avatar from "../../../assets/icons/Oval.svg";
+
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "redux/reducers";
+import { userLogout } from "redux/actions/userActionCreator/userActionCreator";
 
 export const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const [isUserLogged, setIsUserLogged] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const { isUserLogged, loggedUser } = useSelector(
+    (state: RootState) => state.users
+  );
 
   const theme = useTheme();
   const matches = useMediaQuery(() => theme.breakpoints.up("md"));
@@ -31,6 +37,10 @@ export const NavBar = () => {
 
   const handleOpenToolTip = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleUserLogout = () => {
+    dispatch(userLogout());
   };
 
   const handleClose = () => {
@@ -83,7 +93,10 @@ export const NavBar = () => {
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
               >
-                <Avatar src={avatar} sx={{ width: 48, height: 48 }} />
+                <Avatar
+                  src={loggedUser?.avatar}
+                  sx={{ width: 48, height: 48 }}
+                />
               </IconButton>
             </Tooltip>
           ) : (
@@ -148,7 +161,9 @@ export const NavBar = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem sx={{ width: "184px" }}>Logout</MenuItem>
+        <MenuItem onClick={handleUserLogout} sx={{ width: "164px" }}>
+          Logout
+        </MenuItem>
       </Menu>
     </>
   );

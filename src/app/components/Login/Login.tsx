@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import {
   Card,
   Box,
@@ -18,6 +19,11 @@ import { useTheme } from "@mui/material/styles";
 import { colors } from "../../assets/colors/colors";
 import picture from "../../assets/image/Bitmap.svg";
 import { AppRoute } from "routing/AppRoute.enum";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { fetchLoginUser } from "redux/actions/userActionCreator/userActionCreator";
+import { UserCredentials } from "models/user.interface";
+import { InfoModal } from "../UI/Modals/InfoModal/InfoModal";
+import { RootState } from "redux/reducers";
 
 const containerStyle = {
   width: "100%",
@@ -48,7 +54,6 @@ const LoginInput = styled(InputBase)(({ theme }) => ({
       "background-color",
       "box-shadow",
     ]),
-
     "&:focus": {
       boxShadow: `${alpha(colors.blueLight, 0.9)} 0 0 0 0.1rem`,
       borderColor: colors.blue,
@@ -61,11 +66,34 @@ const LabelInput = styled(InputLabel)(({ theme }) => ({
 }));
 
 export const Login = () => {
+  const { isFailure, isUserLogged } = useSelector(
+    (state: RootState) => state.users,
+    shallowEqual
+  );
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+
+    formState: { errors },
+  } = useForm<UserCredentials>();
+
   const theme = useTheme();
 
-  console.log(theme.typography.fontWeightBold);
-
   const matches = useMediaQuery(() => theme.breakpoints.up("md"));
+
+  const handleUserLogin = async (data: UserCredentials) => {
+    dispatch(fetchLoginUser(data));
+  };
+
+  useEffect(() => {
+    if (isUserLogged) {
+      navigate("/");
+    }
+  }, [isUserLogged]);
 
   return (
     <>
@@ -75,6 +103,12 @@ export const Login = () => {
             <Box sx={{ width: "600px" }} mr={{ md: "48px", xl: "128px" }}>
               <CardMedia component="img" image={picture} alt="green iguana" />
             </Box>
+          )}
+          {isFailure.isFailureStatus && (
+            <InfoModal
+              text={isFailure.message}
+              isOpen={isFailure.isFailureStatus}
+            />
           )}
 
           <Box
@@ -112,15 +146,30 @@ export const Login = () => {
               <Typography mb="53px" variant="h3">
                 Login
               </Typography>
-              <LabelInput htmlFor="userName">Username</LabelInput>
+              <LabelInput htmlFor="username">Username</LabelInput>
               <LoginInput
+                sx={{ color: errors.username && "red" }}
+                {...register("username", { required: true })}
                 id="userName"
                 fullWidth={true}
-                placeholder="Enter username"
+                placeholder={
+                  errors.password ? "User name is required" : "Enter username"
+                }
               />
               <LabelInput htmlFor="password">Password</LabelInput>
-              <LoginInput id="password" placeholder="Enter password" />
+              <LoginInput
+                sx={{ color: errors.password && "red" }}
+                {...register("password", { required: true })}
+                type="password"
+                id="password"
+                placeholder={
+                  errors.password ? "Password is required" : "Enter password"
+                }
+              />
+
               <Button
+                onClick={handleSubmit(handleUserLogin)}
+                type="submit"
                 sx={{
                   height: "48px",
                   marginTop: "34px",
@@ -133,6 +182,18 @@ export const Login = () => {
               >
                 Log in
               </Button>
+              <Link
+                to={AppRoute.ForgetPassword}
+                style={{
+                  textDecoration: "none",
+                  minWidth: 100,
+                  marginTop: "16px",
+                  fontSize: "14px",
+                  color: colors.grey,
+                }}
+              >
+                Forgot password?
+              </Link>
             </FormGroup>
           </Box>
         </Card>

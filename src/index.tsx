@@ -1,22 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-import { AppProviders } from "providers/AppProviders";
+import { Provider } from "react-redux";
 
 import { App } from "./app/App";
 import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "providers/ThemeProvider/ThemeProvider";
+import theme from "providers/ThemeProvider/StyleTheme";
+import { AppProviders } from "providers/AppProviders";
+import { initialUserState } from "./redux/reducers/userReducer";
+import myStore from "./redux/store";
 
 ReactDOM.render(
   <AppProviders>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-
-      <App />
-    </ThemeProvider>
+    <Provider store={myStore({ users: initialUserState })}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <App />
+      </ThemeProvider>
+    </Provider>
   </AppProviders>,
   document.getElementById("root")
 );

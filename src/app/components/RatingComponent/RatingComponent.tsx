@@ -11,17 +11,18 @@ export const RatingComponent = ({
   rating: number;
   totalStars: number;
 }) => {
-
   return (
-    <Box>
+    <Box data-testid="rating_stars">
       {[...new Array(totalStars)].map((arr, index) => {
         return index < rating ? (
           <StarIcon
+            data-testid="star_icon"
             key={index}
             sx={{ color: colors.orange, width: "14px", height: "13px" }}
           />
         ) : (
           <StarBorderOutlinedIcon
+            data-testid="outline_icon"
             key={index}
             sx={{ color: colors.greyLight2, width: "14px", height: "13px" }}
           />

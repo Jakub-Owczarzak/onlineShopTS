@@ -6,8 +6,11 @@ import { RatingComponent } from "./RatingComponent";
 
 describe("Products", () => {
   test("Displays page header", async () => {
-    const { getByText } = render(<RatingComponent rating={5} />);
+    const { getAllByTestId } = render(
+      <RatingComponent rating={3} totalStars={5} />
+    );
 
-    expect(getByText("Products page")).toBeInTheDocument();
+    expect(await getAllByTestId("star_icon").length).toEqual(3);
+    expect(await getAllByTestId("outline_icon").length).toEqual(2);
   });
 });

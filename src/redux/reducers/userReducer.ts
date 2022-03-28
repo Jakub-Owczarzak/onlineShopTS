@@ -4,7 +4,7 @@ import { UserActions } from "../actions/userActionCreator/userAction.interface";
 
 import { UsersActionTypes } from "../action-types/action-types";
 
-interface UsersState {
+export interface UsersState {
   isUserLogged: boolean;
   loggedUser: User | null;
   users: User[];
@@ -14,7 +14,7 @@ interface UsersState {
   };
 }
 
-const initialState: UsersState = {
+export const initialUserState: UsersState = {
   isUserLogged: false,
   loggedUser: null,
   users: [],
@@ -24,7 +24,10 @@ const initialState: UsersState = {
   },
 };
 
-const userReducer = (state = initialState, action: UserActions): UsersState => {
+const userReducer = (
+  state = initialUserState,
+  action: UserActions
+): UsersState => {
   switch (action.type) {
     case UsersActionTypes.LOGIN:
       return {

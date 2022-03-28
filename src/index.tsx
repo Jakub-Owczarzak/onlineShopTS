@@ -9,12 +9,12 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "providers/ThemeProvider/StyleTheme";
 import { AppProviders } from "providers/AppProviders";
-
-import { store } from "./redux/store";
+import { initialUserState } from "./redux/reducers/userReducer";
+import myStore from "./redux/store";
 
 ReactDOM.render(
   <AppProviders>
-    <Provider store={store}>
+    <Provider store={myStore({ users: initialUserState })}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <App />

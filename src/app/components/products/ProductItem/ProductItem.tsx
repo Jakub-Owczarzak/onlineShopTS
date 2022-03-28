@@ -27,6 +27,7 @@ export const ProductItem = ({
     <>
       {item && (
         <Card
+          data-testid="product_item"
           sx={
             isModalElement
               ? {
@@ -43,8 +44,12 @@ export const ProductItem = ({
           }
         >
           {item.promo && item.active && <Promo />}
-          <CardActionArea disabled={!item.active || isModalElement}>
+          <CardActionArea
+            data-testid="photo_cardaction_area"
+            disabled={!item.active || isModalElement}
+          >
             <CardMedia
+              data-testid="photo_element"
               {...(handleModalOpen && { onClick: () => handleModalOpen(item) })}
               component="img"
               height={isModalElement ? 354 : 180}
@@ -55,6 +60,7 @@ export const ProductItem = ({
           </CardActionArea>
           <CardContent sx={{ paddingTop: "5px", paddingBottom: "5px" }}>
             <Typography
+              data-testid="header_element"
               gutterBottom
               variant={isModalElement ? "h5" : "h6"}
               component="div"
@@ -63,6 +69,7 @@ export const ProductItem = ({
               {item.name}
             </Typography>
             <Typography
+              data-testid="description_element"
               height={40}
               variant={isModalElement ? "body1" : "body2"}
               color="text.secondary"
@@ -77,6 +84,7 @@ export const ProductItem = ({
               </CardContent>
               <CardActions>
                 <Button
+                  data-testid="details_button"
                   onClick={() => handleModalOpen(item)}
                   style={{
                     backgroundColor: item.active

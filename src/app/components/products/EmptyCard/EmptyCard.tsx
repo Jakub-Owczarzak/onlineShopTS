@@ -9,6 +9,7 @@ import Icon from "../../../assets/icons/shape.svg";
 export const EmptyCard = () => {
   return (
     <Box
+      data-testid="empty_card"
       width={{ xs: "320px", xl: "600px" }}
       position={"absolute"}
       top={{ xs: "250px", md: "160px", xl: "30px" }}

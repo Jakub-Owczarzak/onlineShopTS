@@ -35,10 +35,10 @@ export const ProductModal = ({
   dataToDisplay,
   handleModalClose,
 }: ProducModalProps<Product>) => {
- 
   return (
     <div>
       <Modal
+        data-testid="product_modal"
         open={isModalOpen}
         onClose={handleModalClose}
         aria-labelledby="modal-modal-title"

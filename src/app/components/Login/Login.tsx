@@ -13,6 +13,7 @@ import {
   alpha,
   InputBase,
   styled,
+  Theme,
 } from "@mui/material";
 
 import { useTheme } from "@mui/material/styles";
@@ -24,6 +25,7 @@ import { fetchLoginUser } from "redux/actions/userActionCreator/userActionCreato
 import { UserCredentials } from "models/user.interface";
 import { InfoModal } from "../UI/Modals/InfoModal/InfoModal";
 import { RootState } from "redux/reducers";
+import theme from "providers/ThemeProvider/StyleTheme";
 
 const containerStyle = {
   width: "100%",
@@ -81,8 +83,6 @@ export const Login = () => {
     formState: { errors },
   } = useForm<UserCredentials>();
 
-  const theme = useTheme();
-
   const matches = useMediaQuery(() => theme.breakpoints.up("md"));
 
   const handleUserLogin = async (data: UserCredentials) => {
@@ -106,6 +106,7 @@ export const Login = () => {
           )}
           {isFailure.isFailureStatus && (
             <InfoModal
+              data-testid="infoModal"
               text={isFailure.message}
               isOpen={isFailure.isFailureStatus}
             />
@@ -146,8 +147,10 @@ export const Login = () => {
               <Typography mb="53px" variant="h3">
                 Login
               </Typography>
-              <LabelInput htmlFor="username">Username</LabelInput>
+              <LabelInput htmlFor="userName">Username</LabelInput>
               <LoginInput
+                data-testid="userNameInput"
+                inputProps={{ "data-testid": "userNameInputProps" }}
                 sx={{ color: errors.username && "red" }}
                 {...register("username", { required: true })}
                 id="userName"
@@ -158,10 +161,12 @@ export const Login = () => {
               />
               <LabelInput htmlFor="password">Password</LabelInput>
               <LoginInput
+                id="password"
+                data-testid="passwordInput"
+                inputProps={{ "data-testid": "passwordInputProps" }}
                 sx={{ color: errors.password && "red" }}
                 {...register("password", { required: true })}
                 type="password"
-                id="password"
                 placeholder={
                   errors.password ? "Password is required" : "Enter password"
                 }
@@ -170,6 +175,7 @@ export const Login = () => {
               <Button
                 onClick={handleSubmit(handleUserLogin)}
                 type="submit"
+                data-testid="submitButton"
                 sx={{
                   height: "48px",
                   marginTop: "34px",

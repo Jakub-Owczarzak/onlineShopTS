@@ -6,6 +6,7 @@ import { colors } from "../../../assets/colors/colors";
 export const Promo = () => {
   return (
     <Box
+      data-testid="promo-element"
       sx={{
         width: "75px",
         height: "24px",

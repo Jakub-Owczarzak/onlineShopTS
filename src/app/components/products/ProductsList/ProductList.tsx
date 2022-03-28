@@ -16,6 +16,7 @@ export const ProductList = ({ products }: { products: Product[] }) => {
     setisModalOpen(true);
   };
   const handleModalClose = () => setisModalOpen(false);
+  console.log(products);
   return (
     <>
       {isModalOpen && (
@@ -34,7 +35,7 @@ export const ProductList = ({ products }: { products: Product[] }) => {
         rowSpacing={{ xs: 5, xl: 3 }}
         columnSpacing={{ xs: 4, md: 6, xl: 8 }}
       >
-        {products ? (
+        {products.length > 0 ? (
           products.map((el, index) => (
             <Grid key={index} item>
               <ProductItem

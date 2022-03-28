@@ -54,7 +54,6 @@ export const MainView = () => {
   const handleSearchBarChange = (
     e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-   
     setCurrentPage(1);
     setSearchBarProduct(e.currentTarget.value);
   };
@@ -63,7 +62,6 @@ export const MainView = () => {
     event: React.ChangeEvent<unknown>,
     value: number
   ) => {
- 
     setCurrentPage(value);
   };
 
@@ -87,8 +85,6 @@ export const MainView = () => {
       const data = await response.json();
       if (data) {
         if (data.items.length > 0 && data.meta) {
-      
-
           setFechtedProducts(data.items);
           setFetchedPaginationInfo(data.meta);
           setIsLoading(false);
@@ -100,7 +96,6 @@ export const MainView = () => {
         throw new Error("No matches");
       }
     } catch (error) {
-    
       setIsLoading(false);
     }
   };
@@ -142,7 +137,7 @@ export const MainView = () => {
             flexDirection: "column",
           }}
         >
-          {isLoading && <CircularProgress />}
+          {isLoading && <CircularProgress data-testid="circular_progress" />}
           {fechtedProducts && !isLoading && (
             <ProductList products={fechtedProducts} />
           )}

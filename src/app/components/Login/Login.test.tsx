@@ -20,17 +20,17 @@ const renderLoginComponent = () =>
 
 describe("Login", () => {
   test("Displays all information", () => {
-    const { getByText, getByTestId, rerender } = renderLoginComponent();
+    const { getByText, getByTestId } = renderLoginComponent();
     expect(getByText("join.tsh.io")).toBeInTheDocument();
     expect(getByText("Log in")).toBeInTheDocument();
     expect(getByText("Username")).toBeInTheDocument();
-    expect(getByTestId("userNameInput"));
+    expect(getByTestId("userNameInput")).toBeInTheDocument();
     expect(getByText("Password")).toBeInTheDocument();
-    expect(getByTestId("passwordInput"));
+    expect(getByTestId("passwordInput")).toBeInTheDocument();
     expect(getByText("Forgot password?")).toBeInTheDocument();
   });
 
-  test("Display proper placeholders, changin placeholders value when no vales provided", async () => {
+  test("Display proper placeholders, changing placeholders value when no vales provided", async () => {
     const { getByPlaceholderText, getByTestId } = renderLoginComponent();
     expect(getByPlaceholderText("Enter username")).toBeInTheDocument();
     expect(getByPlaceholderText("Enter password")).toBeInTheDocument();

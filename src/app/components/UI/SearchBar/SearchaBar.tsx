@@ -58,7 +58,10 @@ export const SearchaBar = () => {
       </SearchIconWrapper>
       <StyledInputBase
         placeholder="Search"
-        inputProps={{ "aria-label": "search" }}
+        inputProps={{
+          "aria-label": "search",
+          "data-testid": "searchBarInputProps",
+        }}
         value={searchBarValue}
         onChange={(e) => handleSearchBarChange(e)}
       />

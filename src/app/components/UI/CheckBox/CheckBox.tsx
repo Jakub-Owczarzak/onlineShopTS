@@ -32,7 +32,11 @@ export const CheckBox = () => {
         onChange={(e) => handleCheckBoxChange(e)}
         control={
           <Checkbox
-            {...{ inputProps: { "aria-label": "promo" } }}
+            {...{
+              inputProps: {
+                "aria-label": "promo",
+              },
+            }}
             checked={promo}
           />
         }

@@ -1,7 +1,3 @@
-import { ThemeProvider } from "@mui/styles";
-import { SearchContext } from "context/searchContext";
-import theme from "providers/ThemeProvider/StyleTheme";
-
 import { Provider } from "react-redux";
 import { initialUserState } from "redux/reducers/userReducer";
 import store from "redux/store";

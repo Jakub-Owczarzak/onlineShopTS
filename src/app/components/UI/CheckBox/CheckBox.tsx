@@ -1,6 +1,8 @@
+import React, { useContext } from "react";
+
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+
 import { SearchContext } from "context/searchContext";
-import React, { useState, useContext } from "react";
 
 interface CheckBoxProps<T> {
   label: string;

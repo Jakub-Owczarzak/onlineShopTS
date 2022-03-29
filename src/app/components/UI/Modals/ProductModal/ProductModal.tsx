@@ -1,8 +1,8 @@
 import * as React from "react";
+
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+
 import { Product } from "models/products.interface";
 import { ProductItem } from "app/components/products/ProductItem/ProductItem";
 import { CloseButton } from "../../Buttons/CloseButton";

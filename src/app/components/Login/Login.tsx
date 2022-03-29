@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
@@ -13,10 +13,8 @@ import {
   alpha,
   InputBase,
   styled,
-  Theme,
 } from "@mui/material";
 
-import { useTheme } from "@mui/material/styles";
 import { colors } from "../../assets/colors/colors";
 import picture from "../../assets/image/Bitmap.svg";
 import { AppRoute } from "routing/AppRoute.enum";

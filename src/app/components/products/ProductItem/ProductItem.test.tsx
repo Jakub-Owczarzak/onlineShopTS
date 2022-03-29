@@ -1,12 +1,11 @@
 import { Product } from "models/products.interface";
 import React from "react";
 
-import { render, fireEvent, waitFor } from "tests";
+import { render } from "tests";
 import { fetchProducts } from "tests/api/functions/productFetch";
 
 import { ProductItem } from "./ProductItem";
 
-const products = fetchProducts(1, 2);
 
 describe("Product item card when not as modal element", () => {
   test("Displays Product Item component when product is active and promo", async () => {

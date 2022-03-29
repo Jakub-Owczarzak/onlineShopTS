@@ -6,6 +6,7 @@ import InputBase from "@mui/material/InputBase";
 
 import { colors } from "../../../assets/colors/colors";
 import { SearchContext } from "context/searchContext";
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   border: `1px solid ${colors.greyLight2}`,

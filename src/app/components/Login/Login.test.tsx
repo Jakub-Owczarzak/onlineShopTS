@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { initialUserState } from "redux/reducers/userReducer";
 import store from "redux/store";
 
-import { render, fireEvent, act, waitFor } from "tests";
+import { render, fireEvent, waitFor } from "tests";
 
 import { Login } from "./Login";
 

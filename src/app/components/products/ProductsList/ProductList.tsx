@@ -6,7 +6,6 @@ import { Product } from "../../../../models/products.interface";
 import { ProductModal } from "../../UI/Modals/ProductModal/ProductModal";
 
 import Grid from "@mui/material/Grid";
-import { isTemplateLiteralTypeNode } from "typescript";
 
 export const ProductList = ({ products }: { products: Product[] }) => {
   const [isModalOpen, setisModalOpen] = React.useState<boolean>(false);
@@ -16,7 +15,7 @@ export const ProductList = ({ products }: { products: Product[] }) => {
     setisModalOpen(true);
   };
   const handleModalClose = () => setisModalOpen(false);
-  console.log(products);
+
   return (
     <>
       {isModalOpen && (

@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useMemo, memo } from "react";
 
+import { Box, CircularProgress } from "@mui/material";
+
 import { ProductList } from "app/components/products/ProductsList/ProductList";
 import { Product } from "../../../models/products.interface";
 import { NavBar } from "app/components/navigation/NavBar/NavBar";
-import { Box, CircularProgress } from "@mui/material";
+
 import { EmptyCard } from "app/components/products/EmptyCard/EmptyCard";
 import { SearchContext } from "context/searchContext";
 import { PaginationComponent } from "app/components/UI/Pagination/Pagination";

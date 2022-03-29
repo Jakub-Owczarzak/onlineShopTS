@@ -49,6 +49,7 @@ export const NavBar = () => {
   return (
     <>
       <Box
+       
         width={1}
         padding={{ xs: "0 20px", md: "0 108px", xl: "0 225px" }}
         mb={{ xs: "20px", xl: "0 " }}
@@ -86,6 +87,7 @@ export const NavBar = () => {
           {isUserLogged ? (
             <Tooltip title="">
               <IconButton
+                id="avatar_icon_button"
                 onClick={handleOpenToolTip}
                 size="small"
                 sx={{ ml: 2 }}
@@ -109,6 +111,7 @@ export const NavBar = () => {
               }}
             >
               <Link
+                id="login_link"
                 to={AppRoute.Login}
                 style={{
                   display: "block",
@@ -161,7 +164,11 @@ export const NavBar = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem onClick={handleUserLogout} sx={{ width: "164px" }}>
+        <MenuItem
+          id="logout_button"
+          onClick={handleUserLogout}
+          sx={{ width: "164px" }}
+        >
           Logout
         </MenuItem>
       </Menu>

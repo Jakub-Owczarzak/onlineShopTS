@@ -149,11 +149,11 @@ export const Login = () => {
               </Typography>
               <LabelInput htmlFor="userName">Username</LabelInput>
               <LoginInput
+                id="userNameInput"
                 data-testid="userNameInput"
                 inputProps={{ "data-testid": "userNameInputProps" }}
                 sx={{ color: errors.username && "red" }}
                 {...register("username", { required: true })}
-                id="userName"
                 fullWidth={true}
                 placeholder={
                   errors.password ? "User name is required" : "Enter username"
@@ -161,7 +161,7 @@ export const Login = () => {
               />
               <LabelInput htmlFor="password">Password</LabelInput>
               <LoginInput
-                id="password"
+                id="passwordInput"
                 data-testid="passwordInput"
                 inputProps={{ "data-testid": "passwordInputProps" }}
                 sx={{ color: errors.password && "red" }}
@@ -173,9 +173,10 @@ export const Login = () => {
               />
 
               <Button
+                id="submitButton"
+                data-testid="submitButton"
                 onClick={handleSubmit(handleUserLogin)}
                 type="submit"
-                data-testid="submitButton"
                 sx={{
                   height: "48px",
                   marginTop: "34px",

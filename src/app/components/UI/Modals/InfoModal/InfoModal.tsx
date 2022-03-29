@@ -34,6 +34,7 @@ export const InfoModal = ({ isOpen, text }: InfoModalProps) => {
   return (
     <div>
       <Modal
+        id="infoModal"
         open={isOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"

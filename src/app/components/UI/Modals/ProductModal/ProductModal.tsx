@@ -20,8 +20,6 @@ const containerStyle = {
   transform: "translate(-50%, -50%)",
   width: { xs: "327px", md: "600px" },
   height: { xs: "570px", md: "530px" },
-  bgcolor: "background.paper",
-  boxShadow: 24,
   p: 4,
   borderRadius: "8px",
   display: "flex",
@@ -41,8 +39,6 @@ export const ProductModal = ({
         data-testid="product_modal"
         open={isModalOpen}
         onClose={handleModalClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
       >
         <Box sx={containerStyle}>
           <Box

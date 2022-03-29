@@ -61,6 +61,7 @@ export const SearchaBar = () => {
         inputProps={{
           "aria-label": "search",
           "data-testid": "searchBarInputProps",
+          id: "search_bar",
         }}
         value={searchBarValue}
         onChange={(e) => handleSearchBarChange(e)}

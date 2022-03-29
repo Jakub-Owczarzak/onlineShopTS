@@ -27,6 +27,7 @@ export const ProductItem = ({
     <>
       {item && (
         <Card
+          id="product_item"
           data-testid="product_item"
           sx={
             isModalElement
@@ -84,6 +85,7 @@ export const ProductItem = ({
               </CardContent>
               <CardActions>
                 <Button
+                  id="details_button"
                   data-testid="details_button"
                   onClick={() => handleModalOpen(item)}
                   style={{

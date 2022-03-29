@@ -8,6 +8,6 @@ describe("Products", () => {
   test("Displays page header", async () => {
     const { getByText } = render(<EmptyCard />);
 
-    expect(getByText("Products page")).toBeInTheDocument();
+    expect(getByText("There are no products on the list")).toBeInTheDocument();
   });
 });

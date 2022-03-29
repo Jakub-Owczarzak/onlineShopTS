@@ -6,7 +6,6 @@ import { fetchProducts } from "tests/api/functions/productFetch";
 
 import { ProductItem } from "./ProductItem";
 
-
 describe("Product item card when not as modal element", () => {
   test("Displays Product Item component when product is active and promo", async () => {
     const products = await fetchProducts(1, 2);

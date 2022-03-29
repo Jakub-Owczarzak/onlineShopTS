@@ -24,6 +24,7 @@ export const PaginationComponent = ({
       {pageCount > 0 && (
         <Stack sx={{ margin: "20px 0" }} spacing={2}>
           <Pagination
+          id="pagination_component"
             page={currentPage}
             count={pageCount}
             siblingCount={1}

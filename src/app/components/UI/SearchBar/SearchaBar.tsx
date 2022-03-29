@@ -6,6 +6,7 @@ import InputBase from "@mui/material/InputBase";
 
 import { colors } from "../../../assets/colors/colors";
 import { SearchContext } from "context/searchContext";
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   border: `1px solid ${colors.greyLight2}`,
@@ -61,6 +62,7 @@ export const SearchaBar = () => {
         inputProps={{
           "aria-label": "search",
           "data-testid": "searchBarInputProps",
+          id: "search_bar",
         }}
         value={searchBarValue}
         onChange={(e) => handleSearchBarChange(e)}

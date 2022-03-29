@@ -1,6 +1,8 @@
+import React, { useContext } from "react";
+
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+
 import { SearchContext } from "context/searchContext";
-import React, { useState, useContext } from "react";
 
 interface CheckBoxProps<T> {
   label: string;
@@ -22,7 +24,7 @@ export const CheckBox = () => {
         onChange={(e) => handleCheckBoxChange(e)}
         control={
           <Checkbox
-            {...{ inputProps: { "aria-label": "active" } }}
+            {...{ inputProps: { "aria-label": "active", id: "active" } }}
             checked={active}
           />
         }
@@ -35,6 +37,7 @@ export const CheckBox = () => {
             {...{
               inputProps: {
                 "aria-label": "promo",
+                id: "promo",
               },
             }}
             checked={promo}

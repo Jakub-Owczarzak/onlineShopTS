@@ -1,5 +1,4 @@
 import {
-  FullUserDataResponse,
   User,
   UserCredentials,
 } from "models/user.interface";

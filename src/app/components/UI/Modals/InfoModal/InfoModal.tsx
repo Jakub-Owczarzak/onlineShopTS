@@ -1,9 +1,10 @@
 import * as React from "react";
+import { useDispatch } from "react-redux";
+
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { useDispatch } from "react-redux";
+
 import { resetError } from "redux/actions/userActionCreator/userActionCreator";
 
 const style = {
@@ -34,6 +35,7 @@ export const InfoModal = ({ isOpen, text }: InfoModalProps) => {
   return (
     <div>
       <Modal
+        id="infoModal"
         open={isOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"

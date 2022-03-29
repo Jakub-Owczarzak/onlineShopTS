@@ -1,6 +1,6 @@
+import React from "react";
 import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import React from "react";
 
 export const CloseButton = () => {
   return (

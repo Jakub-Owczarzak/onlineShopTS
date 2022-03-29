@@ -27,11 +27,7 @@ For E2E testing we are using the [Cypress](https://www.cypress.io/) framework. I
 
 In the project directory, you can run:
 
-### `e2e:run`
-
-Runs Cypress E2E tests in a headless mode (the browser window is not visible)
-
-### `e2e:open`
+### `cypress:open`
 
 Opens the Cypress UI, allowing to run and watch E2E tests
 

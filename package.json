@@ -3,11 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "start": "node server.js",
-    "test": "cross-env NODE_ICU_DATA=node_modules/full-icu react-scripts test",
-    "serve": "./node_modules/.bin/http-server ./build --port 1337"
+    "start": "node server.js"
   },
   "browserslist": {
     "production": [
